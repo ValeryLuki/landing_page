@@ -1,0 +1,109 @@
+.header__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 8px 0;
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header__logo .header__icon {
+  width: 24px;
+  height: 24px;
+}
+.header__logo .header__text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1C1917;
+  white-space: nowrap;
+}
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.header__right .header__nav .header__list {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.header__right .header__nav .header__list a {
+  text-decoration: none;
+  color: #1C1917;
+  font-weight: 600;
+  transition: color 0.3s;
+  font-size: 12px;
+}
+.header__right .header__nav .header__list a:hover {
+  color: #EC4899;
+}
+.header__right .header__buttons {
+  display: flex;
+  gap: 12px;
+}
+.header .burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.header .burger span {
+  display: block;
+  height: 3px;
+  background: #1C1917;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+.header .burger.active span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.header .burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.header .burger.active span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+@media (max-width: 768px) {
+  .header .burger {
+    display: flex;
+  }
+  .header__right {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #FFFFFF;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    transform: translateY(-200%);
+    transition: transform 0.3s ease;
+    z-index: 5;
+  }
+  .header__right.active {
+    transform: translateY(0);
+  }
+  .header .header__nav .header__list {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    width: 100%;
+  }
+  .header .header__buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+}/*# sourceMappingURL=header.css.map */

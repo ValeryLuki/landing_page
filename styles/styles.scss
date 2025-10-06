@@ -1,0 +1,51 @@
+@use "common/variables" as vars;
+@use "common/mixins" as mx;
+@use "components/header";
+@use "components/hero";
+@use "components/feature";
+@use "components/gallery";
+@use "components/contact";
+@use "components/footer";
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: vars.$font-family;
+    background: vars.$color-primary-bg;
+}
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  padding: 0 8px; 
+  margin: 0 auto;
+}
+
+
+.btn {
+  &--primary {
+    @include mx.button(vars.$color-accent-pink, vars.$color-card-bg, 16px 48px, 18px);
+    width: 360px;
+    height: 57px;
+    line-height: 1.4;}
+     @media (max-width: 400px) {
+     width: 250px;
+     height: 50px;   
+     font-size: 12px;      
+  }
+ 
+
+
+  &--secondary {
+    @include mx.button(vars.$color-accent-pink, vars.$color-card-bg, 12px 20px, 12px);
+    line-height: 1.6;
+  }
+
+  &--active {
+    @include mx.button(transparent, vars.$color-primary-text, 12px 20px, 12px, 1px solid vars.$color-primary-text);
+    line-height: 1.6;
+  }
+}

@@ -1,0 +1,130 @@
+@use "../common/variables" as vars;
+@use "../common/mixins.scss" as mx;
+
+
+.header {
+
+  &__container {
+    @include mx.flex(row, space-between, center, 20px);
+    padding: 8px 0;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .header__icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .header__text {
+      font-size: 14px;
+      font-weight: 600;
+      color: vars.$color-primary-text;
+      white-space: nowrap;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    .header__nav .header__list {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      a {
+        text-decoration: none;
+        color: vars.$color-primary-text;
+        font-weight: 600;
+        transition: color 0.3s;
+        font-size: 12px;
+
+        &:hover {
+          color: vars.$color-accent-pink;
+        }
+      }
+    }
+
+    .header__buttons {
+      display: flex;
+      gap: 12px;
+    }
+  }
+
+  
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    span {
+      display: block;
+      height: 3px;
+      background: vars.$color-primary-text;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    &.active span:nth-child(1) {
+      transform: translateY(7.5px) rotate(45deg);
+    }
+    &.active span:nth-child(2) {
+      opacity: 0;
+    }
+    &.active span:nth-child(3) {
+      transform: translateY(-7.5px) rotate(-45deg);
+    }
+  }
+
+
+ @media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  &__right {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: vars.$color-primary-bg;
+    flex-direction: column;
+    align-items: center;  
+    justify-content: center; 
+    padding: 20px;
+    width: 100%;
+    transform: translateY(-200%);
+    transition: transform 0.3s ease;
+    z-index: 5;
+  }
+
+  &__right.active {
+    transform: translateY(0);
+  }
+
+  .header__nav .header__list {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    width: 100%; 
+  }
+
+  .header__buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center; 
+  }
+ }
+}

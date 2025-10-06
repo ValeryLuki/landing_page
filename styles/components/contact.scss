@@ -1,0 +1,91 @@
+@use "../common/variables" as vars;
+@use "../common/mixins" as mx;
+
+
+.contact {
+
+  &__container {
+    @include mx.flex(row, flex-start, center, 106px);
+    padding: 120px 0;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  &__image {
+    margin-left: 146px;          
+    flex-shrink: 0;              
+    overflow: visible;           
+
+    img {
+      width: 440px;
+      height: 440px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+
+    }
+  }
+
+  &__text {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .contact__title {
+      font-size: vars.$font-size-xl;
+      font-weight: 700;
+      color: vars.$color-primary-text;
+      line-height: 1.4;
+      }
+    }
+
+    .contact__subtitle {
+      font-size: 18px;
+      color: vars.$color-secondary-text;
+      margin-bottom: 16px;
+
+    }
+  }
+
+  @media (max-width: 1130px) {
+    .contact__container {
+      gap: 60px;
+    }
+    .contact__image {
+      margin-left: 20; 
+       img {      
+         width: 350px;
+         height: 350px;
+       }
+    }
+  }
+
+  @media (max-width: 1015px) {
+    .contact__image {
+      margin-left: 10px; 
+    }
+  }
+
+
+  @media (max-width: 834px) {
+    .contact__container {
+      flex-direction: column;
+      text-align: center;
+      padding-top: 60px;
+    }
+    .btn {
+      align-self: center;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .contact__image {
+      margin-left: 20; 
+       img {      
+         width: 220px;
+         height: 200px;
+       }
+    }
+  }
+

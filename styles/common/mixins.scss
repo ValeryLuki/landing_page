@@ -1,0 +1,35 @@
+@use "variables" as vars;
+
+
+@mixin button($bg, $color, $padding, $font-size, $border: none) {
+  background-color: $bg;
+  color: $color;
+  border: $border;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: $padding;
+  font-size: $font-size;
+  font-family: vars.$font-family;
+  display: inline-block;
+}
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}
+
+
+@mixin grid($columns: 1fr, $gap: 0, $align: stretch) {
+  display: grid;
+  grid-template-columns: $columns;
+  gap: $gap;
+  align-items: $align;
+}
